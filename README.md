@@ -1,4 +1,3 @@
-```markdown
 # aScanMeth: Allele-Specific Methylation Analysis from Oxford Nanopore Sequencing Data
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](link-to-your-build-status)
@@ -27,9 +26,7 @@ Here we present **aScanMeth**, a fully automated and customizable computational 
 By enabling the efficient and reproducible inference of haplotype-specific methylation patterns, aScanMeth offers a valuable resource for epigenetic research. Its potential applications range from identifying imprinted regions in the genome to advancing our molecular understanding of the implications of methylation in the modulation of gene expression, and in health and disease.
 
 ---
-```
 
 ## Significance
 
 aScanMeth enables accurate, haplotype-resolved detection of allele-specific DNA methylation from Oxford Nanopore sequencing data, providing a powerful and user-friendly tool for advancing epigenomic research and precision medicine.
-```
