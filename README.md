@@ -22,7 +22,7 @@ aScanMeth automates the identification and phasing of genetic variants into disc
 The method is highly implemented in the form of:
 
 1. A standalone command line tool.
-2. A fully automated Galaxy workflow*. **⚠️ Note:** This feature is not currently implemented, but will be implemented soon
+2. A fully automated Galaxy workflow*. **⚠️ Note:** This feature is not currently implemented, but will be implemented soon.
 
 
 Please see below for additional details.
@@ -52,7 +52,7 @@ Install the dependencies, and clone the main git repository of **aScanMeth**
 
 ### Galaxy workflow
 
-A test environment will be made available soon.
+A test environment will be made available soon. **⚠️ Note:** This feature is not currently implemented, but will be implemented soon.
 
 ### Command line
 
@@ -60,12 +60,10 @@ Obtain a phased modBam file by using Clair3, whatshap and modkit. See the file X
 Please see  https://github.com/nanoporetech/modkit for a more detailed explanation of the bedmethyl format.
 
 To execute a differential methylation analysis run
-```python
-print("Hello, World!")
-x = 10
-y = 20
-print(x + y)
-
+```R
+Rscript aScanMeth.R --h1 1.bed --h2 2.bed
+```
+Where 1.bed and 2.bed are haplotype resolved bedmethyl files as obtained from modkit
 
 
 ---
