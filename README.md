@@ -27,6 +27,7 @@ Here we present **aScanMeth**, a fully automated and customizable computational 
 By enabling the efficient and reproducible inference of haplotype-specific methylation patterns, aScanMeth offers a valuable resource for epigenetic research. Its potential applications range from identifying imprinted regions in the genome to advancing our molecular understanding of the implications of methylation in the modulation of gene expression, and in health and disease.
 
 ---
+```
 
 ## Significance
 
