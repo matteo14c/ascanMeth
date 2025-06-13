@@ -15,18 +15,57 @@ Notwithstanding the potential implications and applications of allele-specific m
 
 ---
 
-## Main Findings
+## aScanMeth
 
-Here we present **aScanMeth**, a fully automated and customizable computational workflow for the identification of ASM from haplotype-resolved raw Oxford Nanopore sequencing data. aScanMeth automates the identification and phasing of genetic variants into discrete haplotype blocks and enables the reliable detection of differentially methylated alleles. The method is highly effective, achieving performance comparable to—or exceeding—that of existing approaches. The workflow is implemented as a standalone tool and also provided in the form of a modular and user-friendly Galaxy pipeline, ensuring reproducibility and seamless integration into any instance of the popular bioinformatics workflow manager Galaxy.
+**aScanMeth**, is a fully automated and customizable computational workflow for the identification of ASM from haplotype-resolved raw Oxford Nanopore sequencing data. 
+aScanMeth automates the identification and phasing of genetic variants into discrete haplotype blocks and enables the reliable detection of differentially methylated alleles. 
+The method is highly implemented in the form of:
+
+1. A standalone command line tool.
+2. A fully automated Galaxy workflow*. **⚠️ Note:** This feature is not currently implemented, but will be implemented soon
+
+
+Please see below for additional details.
+
 
 ---
 
-## Biological Relevance
+## Dependencies
 
-By enabling the efficient and reproducible inference of haplotype-specific methylation patterns, aScanMeth offers a valuable resource for epigenetic research. Its potential applications range from identifying imprinted regions in the genome to advancing our molecular understanding of the implications of methylation in the modulation of gene expression, and in health and disease.
+aScanMeth depends on the following software:
+
+1. Clair3 for variant calling. see: https://github.com/HKU-BAL/Clair3 .
+2. modkit for handling modBam files, see: https://github.com/nanoporetech/modkit.
+3. whatshap for haplotype phasing, see:  https://github.com/whatshap/whatshap
+4. R and Rscript: https://cran.r-project.org/.
+
+All the dependencies need to be installed and properly cofigured 
 
 ---
 
-## Significance
+## Installation
+Install the dependencies, and clone the main git repository of **aScanMeth**
 
-aScanMeth enables accurate, haplotype-resolved detection of allele-specific DNA methylation from Oxford Nanopore sequencing data, providing a powerful and user-friendly tool for advancing epigenomic research and precision medicine.
+---
+
+## Usage
+
+### Galaxy workflow
+
+A test environment will be made available soon.
+
+### Command line
+
+Obtain a phased modBam file by using Clair3, whatshap and modkit. See the file XXX for an example worfklow. **⚠️ Note:** This feature is not currently implemented, but will be implemented soon. As a result you should obtain 2 distinct bedmethyl files, one for each haplotype.
+Please see  https://github.com/nanoporetech/modkit for a more detailed explanation of the bedmethyl format.
+
+To execute a differential methylation analysis run
+```python
+print("Hello, World!")
+x = 10
+y = 20
+print(x + y)
+
+
+
+---
