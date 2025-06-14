@@ -66,4 +66,14 @@ Rscript aScanMeth.R --h1 1.bed --h2 2.bed --n 20
 Where 1.bed and 2.bed are haplotype resolved bedmethyl files as obtained from modkit and n is the number of consecutive CpGs tested
 
 
+### Galaxy workflow
+
+A standalone galaxy instance will be made available to test the galaxy workflow soon.
+This feature is not currently implemented.
+
 ---
+
+## Output
+
+
+
