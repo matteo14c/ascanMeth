@@ -80,13 +80,17 @@ The current version of **aScaMeth** produces 3 files as its main output:
 2. results_H.CpG.csv: results for differential *5hmC* methylation;
 3. results_M.CpG.csv: results for differential *5mC* methylation. 
 
-An example can be found in the folder [Link exampleResults]https://github.com/matteo14c/ascanMeth/tree/main/exampleResults.
+An example can be found in the folder [exampleResults](https://github.com/matteo14c/ascanMeth/tree/main/exampleResults).
 The format is a csv file with 10 columns, and example is provided below:
 | chr | start | end | h1 | h2 | h1stat | h2stat | aScanstat | pvalue | FDR |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | 1000 | 2000 | mCpG H1 | mCpG H1 | 0.85 | 0.92 | 0.78 | 0.001 | 0.015 |
 
-The columns chr, start, end indicate genomics coordinates; h1, and h2 report the number of CpG (results_D.CpG.csv) or the number of modified CpGs (results_H.CpG.csv or results_M.CpG.csv) for the two haplotypes. The column FDR reports the FDR-corrected p-value for differential methylation/CpG density.
+The columns:
+
+* chr, start, end indicate genomics coordinates;
+* h1, and h2 report the number of CpG (results_D.CpG.csv) or the number of modified CpGs (results_H.CpG.csv or results_M.CpG.csv) for the two haplotypes;
+* FDR reports the FDR-corrected p-value for differential methylation/CpG density.
 
 
 
