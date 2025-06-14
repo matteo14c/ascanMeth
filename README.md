@@ -59,12 +59,11 @@ A test environment will be made available soon. **⚠️Note:** This feature is 
 Obtain a phased modBam file by using Clair3, whatshap and modkit. See the file XXX for an example worfklow. **⚠️Note:** This feature is not currently implemented, but will be implemented soon **⚠️**. As a result you should obtain 2 distinct bedmethyl files, one for each haplotype.
 Please see  https://github.com/nanoporetech/modkit for a more detailed explanation of the bedmethyl format.
 
-To execute a differential methylation analysis run
+To execute a differential methylation analysis run:
 ```R
 Rscript aScanMeth.R --h1 1.bed --h2 2.bed --n 20
 ```
-Where 1.bed and 2.bed are haplotype resolved bedmethyl files as obtained from modkit and n is the number of consecutive CpGs tested
-
+Where 1.bed and 2.bed are haplotype resolved bedmethyl files as obtained from modkit and n is the number of consecutive CpGs tested.   
 
 ### Galaxy workflow
 
@@ -74,6 +73,22 @@ This feature is not currently implemented.
 ---
 
 ## Output
+
+The current version of **aScaMeth** produces 3 files as its main output:
+
+1. results_D.CpG.csv: results for differential density of CpG. This one indicates/reports whether the paternal/maternal haplotypes has an increased number of CpGs w.r.t the other haplotype
+2. results_H.CpG.csv: results for differential *5hmC* methylation
+3. results_M.CpG.csv: results for differential *5mC* methylation. 
+
+An example can be found in the folder [Link exampleResults]https://github.com/matteo14c/ascanMeth/tree/main/exampleResults.
+The format is a csv file with 10 columns, and example is provided below:
+| chr | start | end | h1 | h2 | h1stat | h2stat | aScanstat | pvalue | FDR |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 1000 | 2000 | mCpG H1 | mCpG H1 | 0.85 | 0.92 | 0.78 | 0.001 | 0.015 |
+
+The columns chr, start, end indicate genomics coordinates; h1, and h2 report the number of CpG (results_D.CpG.csv) or the number of modified CpGs (results_H.CpG.csv or results_M.CpG.csv) for the two haplotypes. The column FDR reports the FDR-corrected p-value for differential methylation/CpG density.
+
+
 
 
 
