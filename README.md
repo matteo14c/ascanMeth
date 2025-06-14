@@ -2,7 +2,7 @@
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](link-to-your-build-status)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/your_username/aScanMeth.svg?style=social)](https://github.com/your_username/aScanMeth)
+[![GitHub Stars](https://img.shields.io/github/stars/matteo14c/aScanMeth.svg?style=social)](https://github.com/matteo14c/aScanMeth)
 [![Galaxy Tool](https://img.shields.io/badge/Galaxy%20Tool-Available-purple)](link-to-galaxy-tool-shed)
 
 ---
@@ -76,8 +76,8 @@ This feature is not currently implemented.
 
 The current version of **aScaMeth** produces 3 files as its main output:
 
-1. results_D.CpG.csv: results for differential density of CpG. This one indicates/reports whether the paternal/maternal haplotypes has an increased number of CpGs w.r.t the other haplotype
-2. results_H.CpG.csv: results for differential *5hmC* methylation
+1. results_D.CpG.csv: results for differential density of CpG. This one indicates/reports whether the paternal/maternal haplotypes has an increased number of CpGs w.r.t the other haplotype;
+2. results_H.CpG.csv: results for differential *5hmC* methylation;
 3. results_M.CpG.csv: results for differential *5mC* methylation. 
 
 An example can be found in the folder [Link exampleResults]https://github.com/matteo14c/ascanMeth/tree/main/exampleResults.
