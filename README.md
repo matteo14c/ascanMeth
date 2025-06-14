@@ -21,8 +21,8 @@ Notwithstanding the potential implications and applications of allele-specific m
 aScanMeth automates the identification and phasing of genetic variants into discrete haplotype blocks and enables the reliable detection of differentially methylated alleles. 
 The method is highly implemented in the form of:
 
-1. A standalone command line tool.
-2. A fully automated Galaxy workflow*. **⚠️ Note:** This feature is not currently implemented, but will be implemented soon.
+1. A standalone command line tool and workflow.
+2. A fully automated Galaxy workflow*. **⚠️ Note:** This feature is not currently implemented, but will be implemented soon **⚠️Note:**.
 
 
 Please see below for additional details.
@@ -39,7 +39,7 @@ aScanMeth depends on the following software:
 3. whatshap for haplotype phasing, see:  https://github.com/whatshap/whatshap
 4. R and Rscript: https://cran.r-project.org/.
 
-All the dependencies need to be installed and properly cofigured 
+All the dependencies need to be installed and properly configured 
 
 ---
 
@@ -52,11 +52,11 @@ Install the dependencies, and clone the main git repository of **aScanMeth**
 
 ### Galaxy workflow
 
-A test environment will be made available soon. **⚠️Note:** This feature is not currently implemented, but will be implemented soon.
+A test environment will be made available soon. **⚠️Note:** This feature is not currently implemented, but will be implemented soon **⚠️Note:**.
 
 ### Command line
 
-Obtain a phased modBam file by using Clair3, whatshap and modkit. See the file XXX for an example worfklow. **⚠️Note:** This feature is not currently implemented, but will be implemented soon. As a result you should obtain 2 distinct bedmethyl files, one for each haplotype.
+Obtain a phased modBam file by using Clair3, whatshap and modkit. See the file XXX for an example worfklow. **⚠️Note:** This feature is not currently implemented, but will be implemented soon **⚠️Note:**. As a result you should obtain 2 distinct bedmethyl files, one for each haplotype.
 Please see  https://github.com/nanoporetech/modkit for a more detailed explanation of the bedmethyl format.
 
 To execute a differential methylation analysis run
