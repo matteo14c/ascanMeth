@@ -1,0 +1,5 @@
+How to use, example:
+1. merge family trio vcfs, using: bcftools merge -f PASS phased_SAMPLE_C.vcf.gz phased_SAMPLE_P1.vcf.gz phased_SAMPLE_P2.vcf.gz --missing-to-ref > phased_SAMPLE_all.joinC.vcf
+2. compute genotype phase vcfs, using inferphase.pl : perl inferPhase.pl phased_SAMPLE_all.joinC.vcf  > MC_phased_SAMPLE_C.vcf
+3. use whatshap haplotag to tag a modBam
+4. After 3 the modBam can be used with aScanMeth
