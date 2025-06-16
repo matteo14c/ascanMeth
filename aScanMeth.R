@@ -1,4 +1,3 @@
-
 # parameters
 args <- commandArgs(trailingOnly = TRUE)
 
@@ -108,17 +107,29 @@ computeStatsChunks<-function(commonCpG,chunkSize=20,mod="m")
 	fakeMatStart<-matrix(commonCpG$start,nrow=chunkSize)
 	fakeMatEnd<-matrix(commonCpG$end,nrow=chunkSize)
 	fakeMatChr<-matrix(commonCpG$chr,nrow=chunkSize)
+	fakeMatMod1<-matrix(commonCpG$nmodM1,nrow=chunkSize)
+	fakeMatMod2<-matrix(commonCpG$nmodM2,nrow=chunkSize)
+	fakeMatCoV1<-matrix(commonCpG$covM1,nrow=chunkSize)
+        fakeMatCoV2<-matrix(commonCpG$covM2,nrow=chunkSize)
+
 	
 	# Sum by columns do the chunsize consecutive elements are selected
 	sumStat<-colSums(fakeMatStat)
+	sumM1<-colSums(fakeMatMod1)
+	sumM2<-colSums(fakeMatMod2)
+	covM1<-colSums(fakeMatCoV1)
+	covM2<-colSums(fakeMatCoV2)
+
+
 	
 	# assemble results table
-	results<-data.frame(chr=fakeMatChr[1,] , start=fakeMatStart[1,],end=fakeMatEnd[chunkSize,],stat=sumStat)
+	results<-data.frame(chr=fakeMatChr[1,] , start=fakeMatStart[1,],end=fakeMatEnd[chunkSize,],M1=sumM1,C1=covM1,M2=sumM2,C2=covM2,stat=sumStat)
 	
 	# compute pvalues
 	results$pvalue<-pchisq(results$stat, chunkSize, lower.tail = FALSE)
 	#fdr
 	results$FDR<-p.adjust(results$pvalue)
+	results$logFC <- log2(results$M1/results$M2)
 	
 	return(results)
 }
