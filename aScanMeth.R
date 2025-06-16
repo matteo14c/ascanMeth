@@ -72,6 +72,11 @@ commonCpG<-data.frame(chr=meth1$chr[commonPositionsM1], start=meth1$start[common
 # Filter coverage
 commonCpG<-commonCpG[commonCpG$covM1 >=covThr & commonCpG$covM2 >=covThr ,]
 
+# Compute a correction factor for uneven coverage! Why is coverage uneven anyway???
+corM1<-commonCpG$covM2/commonCpG$covM1
+commonCpG$covM1<-commonCpG$covM1*corM1
+commonCpG$nmodM1<-as.integer(commonCpG$nmodM1*corM1)
+
 # Compute equal methyl ratio (expected, this is m in the formula used by aScan)
 commonCpG$equalRatioMod=(commonCpG$nmodM1+commonCpG$nmodM2)/2
 # Compute value for H1: c1*log(c1/m)
