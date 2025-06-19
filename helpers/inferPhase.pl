@@ -14,7 +14,7 @@ while(<IN>)
 	($C,@Can)=(split(/\:/,$Cd));
 	($P1,@P1an)=(split(/\:/,$P1));
 	($P2,@P2an)=(split(/\:/,$P2));
-	next unless $C=~/\|/;
+	#next unless $C=~/\|/;
 	($c1,$c2)=   $C =~ /\|/ ? (split(/\|/,$C)) : (split(/\//,$C)) ;
 	($p11,$p12)= $P1 =~ /\|/ ? (split(/\|/,$P1)) : (split(/\//,$P1)) ;
 	($p21,$p22)= $P2 =~ /\|/ ? (split(/\|/,$P2)) : (split(/\//,$P2)) ;
@@ -47,43 +47,95 @@ while(<IN>)
 	{
 		$cH1=$c1;
 		$cH2=$c2;
-		$pH1=$p11;
-		$pH2=$p12;
+		if ($c1 eq $p11)
+		{
+			$pH1=$p11;
+			$pH2=$p12;
+		}else{
+			$pH1=$p12;
+			$pH2=$p11;
+		}
 
-		$phased=1
 	}elsif ($c1P1==0 && $c1P2==1){
 		$cH2=$c1;
 		$cH1=$c2;
-		$mH1=$p22;
-		$mH2=$p21;
-
-		$phased=1;
+		if ($c1 eq $p21)
+                {
+                        $mH1=$p22;
+                        $mH2=$p21;
+                }else{
+			$mH1=$p21;
+                        $mH2=$p22;
+                }
+	
+	
 	}elsif ($c2P1==1 && $c2P2==0){
 		$cH1=$c2;
                 $cH2=$c1;
-                $phased=1;
-		$pH1=$p12;
-                $pH2=$p11;
+
+		if ($c2 eq $p11)
+                {
+                        $pH1=$p11;
+                        $pH2=$p12;
+                }else{
+                        $pH1=$p12;
+                        $pH2=$p11;
+                }
+
 
 
 	}elsif($c2P1==0 && $c2P2==1){
 		$cH2=$c2;
                 $cH1=$c1;
-                $phased=1;
-		$mH1=$p21;
-                $mH2=$p22;
+
+		if ($c2 eq $p21)
+                {
+                        $mH1=$p22;
+                        $mH2=$p21;
+                }else{
+                        $mH1=$p21;
+                        $mH2=$p22;
+                }
+
 
 	}else{
 		$cH1=$c1;
 		$cH2=$c2;
 		$sep="/";
 	}
-	$C="$cH1$sep$cH2";
-	$P="$pH1$sep$pH2";
-	$M="$mH1$seo$mH2";
+	$C_m="$cH1$sep$cH2";
+	$P_m="$pH1$sep$pH2";
+	$M_m="$mH1$sep$mH2";
 	
-	print OUT "$chr\t$start\t$end\t$C\t$P1\t$P2\t$out:inv\n" if $out ne $C;
-	print OUT "$chr\t$start\t$end\t$C\t$P1\t$P2\t$out:cor\n" if $out eq $C;
+	$tag_er="";
+	$tag_er.="_inv" if $C_m ne $C && $sep eq "|";
+	$tag_er.="_noP" if $c1P1 ==0 && $c2P1==0; # nessun allele paterno
+        $tag_er.="_noM" if $c1P2 ==0 && $c2P2==0; # nessun allele paterno
+
+	#quick note:
+	# right now I miss out the cases where C is homozygous and the parents are hets
+	# this could be phased in the parents
+	# quick fix here
+	if ($C_m eq "1/1" && ($P_m eq "0/1" || $P_m eq "1/0") && ($M_m eq "0/1" || $M_m eq "1/0") )
+	{
+		$sep="|";
+		$P_m="1|0";
+		$M_m="0|1";
+
+	}elsif( $C_m eq "0/0" && ($P_m eq "0/1" || $P_m eq "1/0") && ($M_m eq "0/1" || $M_m eq "1/0") ){
+		$sep="|";
+                $P_m="0|1";
+                $M_m="1|0";
+
+	}
+
+	if ($tag_er=~/_noM/)
+	{
+		#what to do?
+	}elsif($tag_er=~/_noP/){
+		#what to do?
+	}
+	print OUT "$chr\t$start\t$end\t$C\t$P1\t$P2\t$C_m:$tag_er\n" if $tag_er ne "";
 	#$P1an, $P2an,$Can
-	print "$chr\t$start\t$p\t$ref\t$alt\t$score\t$filter\t$f\t$annots_F\t$C\t$P1\t$P2\n";
+	print "$chr\t$start\t$p\t$ref\t$alt\t$score\t$filter\t$f\t$annots_F\t$C_m\t$P_m\t$M_m\n" if $sep eq "|";
 }
