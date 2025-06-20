@@ -13,7 +13,7 @@ CPUS=8
 
 # Input BAM file
 INPUT_BAM="MC_phased_SAMPLE_C.bam"
-PREFIX="res_25"
+PREFIX="res"
 M="${PREFIX}aScan_genome_M.csv"
 C="${PREFIX}aScan_genome_C.csv"
 
