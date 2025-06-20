@@ -40,8 +40,8 @@ f1<-h1_val
 f2<-h2_val
 
 # Coverage threshold
-covThr<-ifelse(is.null(c_val),5,c_val)
-numThr<-ifelse(is.null(n_val),20,n_val)
+covThr<-ifelse(is.null(c_val),10,c_val)
+numThr<-ifelse(is.null(n_val),25,n_val)
 # 
 
 
