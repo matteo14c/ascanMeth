@@ -136,6 +136,6 @@ while(<IN>)
 		#what to do?
 	}
 	print OUT "$chr\t$start\t$end\t$C\t$P1\t$P2\t$C_m:$tag_er\n" if $tag_er ne "";
-	#$P1an, $P2an,$Can
-	print "$chr\t$start\t$p\t$ref\t$alt\t$score\t$filter\t$f\t$annots_F\t$C_m\t$P_m\t$M_m\n" if $sep eq "|";
+	#$P1an, $P2an,$Can,$P_m, $M_m
+	print "$chr\t$start\t$p\t$ref\t$alt\t$score\t$filter\t$f\t$annots_F\t$C_m:$Can\n" if $sep eq "|";
 }
